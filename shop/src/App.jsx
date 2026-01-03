@@ -3,7 +3,7 @@ import Login from "./login";
 import Signup from "./signup";
 import Home from "./home";
 import ProductDetail from "./productdetail";
-import Checkout from "./Checkout";
+import Checkout from "./checkout";
 
 function App() {
   return (

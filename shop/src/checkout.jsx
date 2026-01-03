@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-function Checkout() {
+function checkout() {
   return (
     <div>
       <h2>Checkout</h2>
@@ -16,4 +16,4 @@ function Checkout() {
     </div>
   );
 }
-export default Checkout;
+export default checkout;
