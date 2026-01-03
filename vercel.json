@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd shop && npm install && npm run build",
+  "outputDirectory": "shop/dist",
+  "installCommand": "cd shop && npm install"
+}
