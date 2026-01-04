@@ -7,7 +7,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/product/${id}`)
+    fetch(`https://e-comm-8fzh.vercel.app/api/product/${id}`)
       .then(res => res.json())
       .then(data => setProduct(data))
       .catch(err => console.log(err));

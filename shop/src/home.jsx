@@ -9,7 +9,7 @@ function Home() {
 
   // fetch products from backend
   useEffect(() => {
-    fetch("http://localhost:5000/api/product")
+    fetch("https://e-comm-8fzh.vercel.app/api/product")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));
