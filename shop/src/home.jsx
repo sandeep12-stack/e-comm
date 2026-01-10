@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
   const navigate = useNavigate();
 
@@ -17,14 +19,16 @@ function Home() {
 
   // add product to cart
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    const updatedCart = [...cart, product];
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   // remove product from cart
   const removeFromCart = (index) => {
-    const newCart = [...cart];
-    newCart.splice(index, 1);
-    setCart(newCart);
+    const updatedCart = cart.filter((_, i) => i !== index);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   // total price
@@ -54,7 +58,6 @@ function Home() {
               className="bg-white p-4 rounded shadow cursor-pointer"
               onClick={() => navigate(`/product/${product._id}`)}
             >
-              {/* ✅ IMAGE */}
               <img
                 src={product.image}
                 alt={product.name}
@@ -66,7 +69,7 @@ function Home() {
 
               <button
                 onClick={(e) => {
-                  e.stopPropagation(); // stop navigation
+                  e.stopPropagation();
                   addToCart(product);
                 }}
                 className="bg-yellow-400 px-3 py-1 rounded"
